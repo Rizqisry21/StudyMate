@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicAsset } from "../lib/assets";
 import "./globals.css";
 import "./scroll-story.css";
 import "./cinematic.css";
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: publicAsset("/favicon.svg"),
+    shortcut: publicAsset("/favicon.svg"),
   },
 };
 

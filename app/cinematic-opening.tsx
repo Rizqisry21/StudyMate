@@ -2,6 +2,7 @@
 import {ArrowDown,ArrowUpRight,Check,BookOpen,Clock,Users,ArrowRight,MessageCircle} from 'lucide-react';
 import {Avatar,Btn} from './ui';
 import {people} from './data';
+import {publicAsset} from '../lib/assets';
 import {scrollToStory} from './scroll-story';
 
 const beats=[{label:'A seat for you',p:0},{label:'Your rhythm',p:.32},{label:'Your person',p:.53},{label:'A little hello',p:.7},{label:'Better together',p:.96}];
@@ -9,8 +10,8 @@ export function CinematicOpening({start}:{start:()=>void}){
  return <section id="hero" className="cinema-track" data-scene="cinema" aria-label="The empty seat: a StudyMate story">
   <div className="cinema-pin">
    <div className="cinema-visual">
-    <img className="cinema-photo cinema-alone" data-active-range="0,0.7" src="/scenes/alone.png" alt="Dimas studying in a sunlit university library, with an empty seat beside him" fetchPriority="high" width="1024" height="572"/>
-    <img className="cinema-photo cinema-together" data-active-range="0.7,1.01" src="/scenes/together.png" alt="Sarah joins Dimas at the same library table to work through a problem together" width="1024" height="572"/>
+    <img className="cinema-photo cinema-alone" data-active-range="0,0.7" src={publicAsset("/scenes/alone.png")} alt="Dimas studying in a sunlit university library, with an empty seat beside him" fetchPriority="high" width="1024" height="572"/>
+    <img className="cinema-photo cinema-together" data-active-range="0.7,1.01" src={publicAsset("/scenes/together.png")} alt="Sarah joins Dimas at the same library table to work through a problem together" width="1024" height="572"/>
     <div className="cinema-shade"/>
    </div>
    <div className="cinema-intro" data-active-range="0,0.19"><span className="cinema-kicker">YOUR NEXT CHAPTER STARTS WITH SOMEONE.</span><h1>A little company.<br/><em>A lot of progress.</em></h1></div>
@@ -33,7 +34,7 @@ export function CinematicOpening({start}:{start:()=>void}){
     <div className="cinema-connect" data-active-range="0.64,0.82"><div><MessageCircle size={19}/><span><strong>A little hello goes a long way.</strong><small>“Saturday at 7? Let’s work through binary trees.”</small></span></div><span className="cinema-connected"><Check size={16}/>You’re connected</span></div>
    </div>
    <div className="cinema-ending" data-active-range="0.86,1.01"><span className="cinema-kicker">SAME TABLE. A WHOLE NEW POSSIBILITY.</span><h2>Better,<br/><em>together.</em></h2><button onClick={()=>scrollToStory('how-it-works')}>Find your common ground <ArrowDown size={17}/></button></div>
-   <figure className="cinema-still-ending"><img src="/scenes/together.png" alt="Sarah and Dimas studying together" loading="lazy" width="1024" height="572"/><figcaption>Same table. A whole new possibility.</figcaption></figure>
+   <figure className="cinema-still-ending"><img src={publicAsset("/scenes/together.png")} alt="Sarah and Dimas studying together" loading="lazy" width="1024" height="572"/><figcaption>Same table. A whole new possibility.</figcaption></figure>
    <div className="cinema-bottom"><span className="cinema-edition">THE STUDYMATE STORY <span>/ 01</span></span><div className="cinema-chapters" aria-label="Opening story chapters">{beats.map((b,i)=><button key={b.label} onClick={()=>scrollToStory('hero',b.p)} data-step-button={i} aria-label={b.label}><span>{String(i+1).padStart(2,'0')}</span><i/><b>{b.label}</b></button>)}</div><span className="cinema-scroll-label">SCROLL TO EXPLORE <ArrowDown size={13}/></span></div>
   </div>
  </section>
